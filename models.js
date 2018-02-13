@@ -4,8 +4,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const candidateSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  name: { type: String, required: true },
   chamber: { type: String, required: true },
   state: { type: String, required: true },
   district: Number,
@@ -19,10 +18,14 @@ const Candidate = mongoose.model('Candidate', candidateSchema);
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
+  teamName: { type: String, required: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
-  team: [{
+  senate: [{
+    candidate_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Candidate' }
+  }],
+  house: [{
     candidate_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Candidate' }
   }]
 });
