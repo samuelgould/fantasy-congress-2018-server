@@ -10,5 +10,3 @@ module.exports = {
   TEST_DATABASE_URL:
     process.env.TEST_DATABASE_URL || 'mongodb://localhost/fantasy-congress-2018-backend-test'
 };
-
-// set JWT_SECRET env for deployment
