@@ -8,10 +8,11 @@ const candidateSchema = new mongoose.Schema({
   name: { type: String, required: true },
   chamber: { type: String, required: true },
   state: { type: String, required: true },
+  stateAbbr: { type: String, required: true },
   district: Number,
   party: { type: String, required: true },
   incumbent: { type: Boolean, required: true },
-  image: { type: String, required: true },
+  image: String,
   price: { type: Number, required: true }
 });
 
@@ -29,7 +30,8 @@ const userSchema = new mongoose.Schema({
   }],
   house: [{
     candidate_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Candidate' }
-  }]
+  }],
+  budget: { type: Number, default: 200 }
 });
 
 userSchema.methods.serialize = function() {
@@ -41,7 +43,8 @@ userSchema.methods.serialize = function() {
     lastName: this.lastName || '',
     teamName: this.teamName,
     senate: this.senate,
-    house: this.house
+    house: this.house,
+    budget: this.budget
   };
 };
 
