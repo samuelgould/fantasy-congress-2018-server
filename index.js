@@ -17,11 +17,11 @@ const app = express();
 
 app.use(morgan('common'));
 
-app.use(
-  cors({
-    origin: CLIENT_ORIGIN
-  })
-);
+// app.use(
+//   cors({
+//     origin: CLIENT_ORIGIN
+//   })
+// );
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
