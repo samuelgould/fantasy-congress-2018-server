@@ -44,6 +44,7 @@ userSchema.methods.serialize = function() {
     firstName: this.firstName || '',
     lastName: this.lastName || '',
     teamName: this.teamName,
+    teamSubmitted: this.teamSubmitted,
     senate: this.senate,
     house: this.house,
     budget: this.budget
